@@ -1,0 +1,87 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>艾瑞巴蒂舞蹈俱乐部</title>
+<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+<!--幻灯片-->
+<script type="text/javascript" src="../js/js_z.js"></script>
+<!-- 引入公共方法库 -->
+<script type="text/javascript" src="../js/public.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/thems.css">
+<!--幻灯片-->
+<style>
+body {
+	background: url(../images/picforeach/logo.png) no-repeat center center;
+	background-size: cover;
+	background-attachment: fixed;
+	background-color: #CCCCCC;
+}
+
+.twttable {
+	margin: 100px auto;
+	margin-bottom: 0px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	/* right: 50%; */
+	/* bottom: 50%; */
+	/* margin: auto; */
+	transform: translate(-50%, -50%);
+}
+
+#commit {
+	width: 50px;
+	height: 30px;
+	float: center;
+	margin-bottom: 10px;
+	margin-right: 6px
+}
+
+td {
+	font: 24px/1.5 Tahoma, Helvetica, Arial, '宋体', sans-serif;
+	color: pink;
+}
+
+.inputTable input {
+	font: 24px/1.5 Tahoma, Helvetica, Arial, '宋体', sans-serif;
+	color: grey;
+}
+</style>
+</head>
+<body>
+	<table class="twttable">
+		<td><table class="inputTable">
+				<tr>
+					<td>用户名：</td>
+					<td><input type="text" id="username" placeholder="请输入用户名"
+						size="20" maxlength="20" /></td>
+					<td> </td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>密  码：</td>
+					<td><input type="password" id="password" placeholder="请输入密码"
+						size="20" maxlength="20" /></td>
+					<td> </td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td>验证码:</td>
+					<td><input name="j_code" type="text" id="kaptchaCode"
+						placeholder="请输入验证码" maxlength="4" class="form-control" /><img
+						alt="图片验证码" onclick="this.src='captcha.jpg?'+Math.random()"
+						width="115px" height="30px" src="captcha.jpg"></td>
+				</tr>
+				<tr>
+					<td style="font: 24px"><input class="commit" id="commitBtn"
+						type="submit" name="login" value="登录"
+						onClick="return validateLogin()"
+						style="text-align: center; font: 24px" /></td>
+				</tr>
+			</table></td>
+	</table>
+	<script type="text/javascript" src="../js/login.js"></script>
+</body>
+</html>

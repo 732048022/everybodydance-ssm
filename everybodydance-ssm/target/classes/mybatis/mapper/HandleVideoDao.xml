@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.everybodydance.twt.dao.HandleVideoDao">
+	<!-- 新增视频 -->
+	<insert id="insertVideo"
+		parameterType="cn.everybodydance.twt.entity.Video">
+		INSERT INTO video(PATH,TITLE,`GROUP`,`INDEX`)
+		VALUES(#{video.path},#{video.title},#{video.group},#{video.index})
+	</insert>
+	<!-- 删除视频 -->
+	<delete id="deleteVideo">
+		DELETE FROM video WHERE
+		`index`=#{index} and `group`=#{group}
+	</delete>
+	<select id="selectPathByIndexAndGroup" resultType="string">
+		SELECT path FROM video WHERE `index`=#{index} and `group`=#{group}
+	</select>
+	<!-- 根据index修改视频名字 -->
+	<update id="updateVideo">
+		UPDATE video set title=#{newtitle}
+		where `index`=#{index} and `group`=#{group}
+	</update>
+	<!-- 根据不同的分组分页查询视频信息 -->
+	<select id="selectVideo4Group" resultType="map">
+		SELECT * FROM video
+		WHERE `group`=#{group} ORDER BY `index` asc limit
+		#{startrow},#{pagesize}
+	</select>
+	<!--根据视频标题找到排序字段 -->
+	<select id="selectIdByTitle" resultType="int">
+		SELECT `index`
+		FROM video WHERE TITLE=#{title} and `group`=#{group}
+	</select>
+</mapper>
